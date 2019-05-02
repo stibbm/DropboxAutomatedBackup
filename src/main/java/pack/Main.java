@@ -188,7 +188,7 @@ public class Main {
 					BigDecimal amountUploadedMb = amountUploadedMB.multiply(new BigDecimal("8"));
 					BigDecimal uploadRate = amountUploadedMb.divide(seconds, BigDecimal.ROUND_HALF_UP);
 
-					System.out.println("Overall upload rate = " + uploadRate.toString() + " MBPS");
+					System.out.println("Overall upload rate = " + uploadRate.toString() + " Mbps");
 					System.out.println("Total amount uploaded = " + amountUploadedMB.toString() + "MB");
 
 				} catch (Exception e) {
@@ -225,7 +225,10 @@ public class Main {
 		Scanner s = new Scanner(new File("AccessNew.txt"));
 		String ret = "";
 		while (s.hasNextLine()) {
-			ret += s.nextLine();
+			String line = s.nextLine();
+			if(line.length()>10) {
+				ret += line;
+			}
 		}
 		return ret;
 	}
